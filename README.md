@@ -8,6 +8,10 @@ A collection of AWS automation utilities.
 |------|-------------|
 | [ec2-auto-shutdown](ec2-auto-shutdown/) | Lambda function that stops EC2 instances running longer than 5 hours, across all regions |
 
+## Contributors
+
+- [nkamatam](https://github.com/nkamatam)
+
 ## Requirements
 
 - [AWS CLI](https://aws.amazon.com/cli/) configured with appropriate credentials
