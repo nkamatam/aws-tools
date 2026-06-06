@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-MAX_RUNNING_HOURS = 5
+MAX_RUNNING_HOURS = 2
 EXEMPT_TAG_KEY = "AutoShutdown"
 EXEMPT_TAG_VALUE = "false"
 

@@ -54,7 +54,7 @@ fi
 echo "==> Creating EventBridge rule (every 5 hours)..."
 aws events put-rule \
   --name ec2-auto-shutdown-schedule \
-  --schedule-expression "rate(5 hours)" \
+  --schedule-expression "rate(2 hours)" \
   --state ENABLED \
   --region $REGION
 
@@ -76,5 +76,5 @@ aws events put-targets \
   --region $REGION
 
 echo ""
-echo "Done. Lambda '${FUNCTION_NAME}' will run every 5 hours and stop any EC2 instance running longer than 5 hours."
+echo "Done. Lambda '${FUNCTION_NAME}' will run every 2 hours and stop any EC2 instance running longer than 2 hours."
 echo "To exempt an instance from shutdown, add the tag:  AutoShutdown=false"

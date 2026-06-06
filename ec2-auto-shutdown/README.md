@@ -48,6 +48,6 @@ Edit the constants at the top of `lambda_function.py` to change defaults:
 
 | Constant | Default | Description |
 |----------|---------|-------------|
-| `MAX_RUNNING_HOURS` | `5` | Hours before an instance is stopped |
+| `MAX_RUNNING_HOURS` | `2` | Hours before an instance is stopped |
 | `EXEMPT_TAG_KEY` | `AutoShutdown` | Tag key checked for exemption |
 | `EXEMPT_TAG_VALUE` | `false` | Tag value that exempts an instance |
