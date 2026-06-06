@@ -1,0 +1,33 @@
+name: Deploy ec2-auto-shutdown
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Package Lambda
+        working-directory: ec2-auto-shutdown
+        run: zip -j lambda.zip lambda_function.py
+
+      - name: Deploy
+        if: github.event_name == 'push'
+        working-directory: ec2-auto-shutdown
+        run: bash deploy.sh
